@@ -41,10 +41,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', upload.none(), authRoutes);  // Apply multer middleware
 
 // View Routes
-app.use('/chimudra',upload.none(), authRoutes); // ✅ Ensure the correct base path
-app.use('/chimudra', upload.none(),batchRoutes); // Apply multer middleware
-app.use('/chimudra/admin', adminRoutes); 
-app.use('/chimudra/payments', paymentRoutes);
+app.use('/chinmudra',upload.none(), authRoutes); // ✅ Ensure the correct base path
+app.use('/chinmudra', upload.none(),batchRoutes); // Apply multer middleware
+app.use('/chinmudra/admin', adminRoutes); 
+app.use('/chinmudra/payments', paymentRoutes);
 // Test homepage
 app.get('/', (req, res) => {
   res.send('Server is running...');

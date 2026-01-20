@@ -26,7 +26,7 @@ router.get('/admin/dashboard', ensureAuthenticated, ensureAdmin, async (req, res
         res.render("pages/adminDashboard", {session: req.session, user: req.session.user, batches }); // ✅ Pass batches to EJS
     } catch (err) {
         console.error("Error fetching batches:", err);
-        res.redirect('/chimudra/login');
+        res.redirect('/chinmudra/login');
     }
 });
 
