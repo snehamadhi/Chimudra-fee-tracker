@@ -9,8 +9,10 @@ const validateRegistration = [
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
+  const firstError = errors.array()[0].msg;
+  return res.redirect(`/chimudra/register?error=${encodeURIComponent(firstError)}`);
+}
+
     next();
   },
 ];

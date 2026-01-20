@@ -4,11 +4,13 @@ const bcrypt = require('bcryptjs');
 const User = require('../models/user'); // Adjust the path to your user model
 
 // ✅ Change your MongoDB URL here
-const mongoURI = 'mongodb://localhost:27017/Chimudra_Academy';
+require('dotenv').config();
+const mongoURI = process.env.MONGO_URI;
+
 
 // ✅ Change the password or email here anytime
 const adminEmail = 'admin@gmail.com';
-const adminPassword = 'admin@12345'; // CHANGE PASSWORD HERE
+const adminPassword = 'admin123'; // CHANGE PASSWORD HERE
 const adminName = 'Admin';
 
 mongoose.connect(mongoURI)
