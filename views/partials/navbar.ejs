@@ -9,20 +9,20 @@
 
         <div>
             <% if (session.userId && session.role === 'user') { %>
-                <a href="/chimudra/dashboard" style="margin-right: 15px; color: darkred; text-decoration: none;">Dashboard</a>
-                <a href="/chimudra/batches" style="margin-right: 15px; color: darkred; text-decoration: none;">Batches</a>
-                <a href="/chimudra/payments/history/<%=session.userId%>" style="margin-right: 15px; color: darkred; text-decoration: none;">Payment History</a>
+                <a href="/chinmudra/dashboard" style="margin-right: 15px; color: darkred; text-decoration: none;">Dashboard</a>
+                <a href="/chinmudra/batches" style="margin-right: 15px; color: darkred; text-decoration: none;">Batches</a>
+                <a href="/chinmudra/payments/history/<%=session.userId%>" style="margin-right: 15px; color: darkred; text-decoration: none;">Payment History</a>
             <% } %>
         
             <% if (!session.userId ) { %>
-                <a href="/chimudra/admin/login" style="margin-right: 15px; color: darkred; text-decoration: none;">Admin</a>
+                <a href="/chinmudra/admin/login" style="margin-right: 15px; color: darkred; text-decoration: none;">Admin</a>
             <% } %>
         
             <% if (session.userId) { %>
-                <a href="/chimudra/logout" style="color: darkred; text-decoration: none;">Logout</a>
+                <a href="/chinmudra/logout" style="color: darkred; text-decoration: none;">Logout</a>
             <% } else { %>
-                <a href="/chimudra/login" style="margin-right: 15px; color: darkred; text-decoration: none;">Login</a>
-                <a href="/chimudra/register" style="color: darkred; text-decoration: none;">Signup</a>
+                <a href="/chinmudra/login" style="margin-right: 15px; color: darkred; text-decoration: none;">Login</a>
+                <a href="/chinmudra/register" style="color: darkred; text-decoration: none;">Signup</a>
             <% } %>
         </div>
     </div>

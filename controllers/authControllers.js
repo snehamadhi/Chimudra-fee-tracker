@@ -9,7 +9,7 @@ exports.register = async (req, res) => {
 
         const userExists = await User.findOne({ email });
         if (userExists) {
-            return res.redirect('/chimudra/register?error=User already exists');
+            return res.redirect('/chinmudra/register?error=User already exists');
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -34,14 +34,14 @@ exports.register = async (req, res) => {
 
         // Redirect based on role
         if (newUser.role === 'admin') {
-            return res.redirect('/chimudra/admin/dashboard');
+            return res.redirect('/chinmudra/admin/dashboard');
         } else {
-            return res.redirect('/chimudra/dashboard');
+            return res.redirect('/chinmudra/dashboard');
         }
 
     } catch (err) {
         console.error('Register Error:', err);
-        return res.redirect('/chimudra/register?error=Server Error');
+        return res.redirect('/chinmudra/register?error=Server Error');
     }
 };
 
@@ -53,15 +53,15 @@ exports.login = async (req, res) => {
     try {
         const user = await User.findOne({ email });
         if (!user) {
-            return res.redirect('/chimudra/login?error=Invalid email or password');
+            return res.redirect('/chinmudra/login?error=Invalid email or password');
         }
          // If the user is an admin, force redirect with an alert
         if (user.role === 'admin') {
-        return res.redirect('/chimudra/login?adminRedirect=true');
+        return res.redirect('/chinmudra/login?adminRedirect=true');
         }
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.redirect('/chimudra/login?error=Invalid email or password');
+            return res.redirect('/chinmudra/login?error=Invalid email or password');
         }
   
         req.session.email = user.email;
@@ -71,11 +71,11 @@ exports.login = async (req, res) => {
         if (user.role === 'admin') {
             res.redirect('admin/dashboard');
         } else {
-            res.redirect('/chimudra/dashboard');
+            res.redirect('/chinmudra/dashboard');
         }
     } catch (err) {
         console.error(err);
-        return res.redirect('/chimudra/login?error=Server Error');
+        return res.redirect('/chinmudra/login?error=Server Error');
     }
   };
   
@@ -90,17 +90,17 @@ exports.login = async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.redirect('/chimudra/admin/login?error=Invalid email or password');
+            return res.redirect('/chinmudra/admin/login?error=Invalid email or password');
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.redirect('/chimudra/admin/login?error=Invalid email or password');
+            return res.redirect('/chinmudra/admin/login?error=Invalid email or password');
         }
 
         // ✅ ONLY check role, not env email
         if (user.role !== 'admin') {
-            return res.redirect('/chimudra/admin/login?error=You are not an admin');
+            return res.redirect('/chinmudra/admin/login?error=You are not an admin');
         }
 
         // ✅ Set session properly
@@ -108,11 +108,11 @@ exports.login = async (req, res) => {
         req.session.email = user.email;
         req.session.role = 'admin';
 
-        return res.redirect('/chimudra/admin/dashboard');
+        return res.redirect('/chinmudra/admin/dashboard');
 
     } catch (err) {
         console.error("Admin Login Error:", err);
-        return res.redirect('/chimudra/admin/login?error=Server Error');
+        return res.redirect('/chinmudra/admin/login?error=Server Error');
     }
 };
 
@@ -122,7 +122,7 @@ exports.logout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
             console.error('Error destroying session:', err);
-            return res.redirect('/chimudra/dashboard'); // Optional fallback
+            return res.redirect('/chinmudra/dashboard'); // Optional fallback
         }
         res.render('pages/logout', { session: {} }); // Renders logout page
     });

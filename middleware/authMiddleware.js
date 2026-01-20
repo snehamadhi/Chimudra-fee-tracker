@@ -22,7 +22,7 @@ function ensureAuthenticated(req, res, next) {
         return next();
     }
     console.log("User not authenticated"); // Debugging log
-    res.redirect('/chimudra/login'); // ✅ Ensure correct redirect
+    res.redirect('/chinmudra/login'); // ✅ Ensure correct redirect
 }
 
 function ensureAdmin(req, res, next) {
@@ -30,6 +30,6 @@ function ensureAdmin(req, res, next) {
     if (req.session && req.session.role === 'admin' && req.session.email === ADMIN_EMAIL) {
         return next();
     }
-    res.redirect('/chimudra/login');
+    res.redirect('/chinmudra/login');
 }
 module.exports = { ensureAuthenticated, ensureAdmin };

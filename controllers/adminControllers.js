@@ -14,7 +14,7 @@ exports.getBatches = async (req, res) => {
         res.render('pages/adminBatches', { batches, session: req.session });
     } catch (err) {
         console.error(err);
-        res.redirect('/chimudra/admin/dashboard');
+        res.redirect('/chinmudra/admin/dashboard');
     }
 };
 
@@ -25,7 +25,7 @@ exports.getStudents = async (req, res) => {
         res.render('pages/adminStudents', { students, session: req.session });
     } catch (err) {
         console.error(err);
-        res.redirect('/chimudra/admin/dashboard');
+        res.redirect('/chinmudra/admin/dashboard');
     }
 };
 
@@ -36,7 +36,7 @@ exports.getStudents = async (req, res) => {
 //         res.render('pages/adminPayments', { payments, session: req.session });
 //     } catch (err) {
 //         console.error(err);
-//         res.redirect('/chimudra/admin/dashboard');
+//         res.redirect('/chinmudra/admin/dashboard');
 //     }
 // };
 
@@ -68,7 +68,7 @@ exports.sendNotification = async (req, res) => {
       console.log(`Notification sent to ${user.email}`);
   
       // Optional: Flash message or alert for success
-      res.redirect('/chimudra/admin/paymentStatus');
+      res.redirect('/chinmudra/admin/paymentStatus');
     } catch (err) {
       console.error(err);
       res.status(500).send('Error sending notification');
